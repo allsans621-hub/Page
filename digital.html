@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WELLCOME TO DIGITAL MARKET</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#080808,#140000,#080808);
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+transition:.4s;
+}
+
+body.dark{
+background:linear-gradient(180deg,#080808,#140000,#080808);
+}
+
+body.blue{
+background:linear-gradient(180deg,#01091f,#07133d,#01091f);
+}
+
+.container{
+max-width:500px;
+margin:auto;
+padding:20px;
+}
+
+.top-buttons{
+display:flex;
+justify-content:flex-end;
+gap:10px;
+margin-bottom:30px;
+}
+
+.top-btn{
+width:50px;
+height:50px;
+border-radius:50%;
+border:none;
+cursor:pointer;
+background:#111;
+color:white;
+font-size:20px;
+box-shadow:0 0 15px red;
+}
+
+.card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,0,0,.2);
+border-radius:25px;
+padding:30px;
+text-align:center;
+backdrop-filter:blur(10px);
+box-shadow:0 0 30px rgba(255,0,0,.2);
+}
+
+.profile-box{
+position:relative;
+width:130px;
+margin:auto;
+}
+
+.profile{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #ff2b2b;
+box-shadow:0 0 25px #ff0000;
+}
+
+.verify{
+position:absolute;
+right:8px;
+bottom:12px;
+background:#1d9bf0;
+width:32px;
+height:32px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+border:3px solid #111;
+font-size:16px;
+}
+
+h1{
+margin-top:20px;
+font-size:34px;
+color:#ff3c3c;
+text-shadow:0 0 15px red;
+}
+
+.desc{
+margin-top:15px;
+opacity:.8;
+}
+
+.menu{
+margin-top:25px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.menu button{
+padding:18px;
+border:none;
+border-radius:20px;
+background:#111;
+color:white;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 15px rgba(255,0,0,.3);
+}
+
+.menu button:hover{
+transform:scale(1.03);
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+overflow:auto;
+padding:20px;
+z-index:999;
+}
+
+.modal-content{
+max-width:700px;
+margin:auto;
+background:#111;
+padding:20px;
+border-radius:20px;
+border:1px solid red;
+}
+
+.close{
+float:right;
+font-size:28px;
+cursor:pointer;
+}
+
+.product{
+padding:15px;
+margin-top:15px;
+border-radius:15px;
+background:#1a1a1a;
+cursor:pointer;
+border:1px solid rgba(255,0,0,.3);
+}
+
+.product:hover{
+box-shadow:0 0 20px red;
+}
+
+.copy-btn{
+padding:15px;
+width:100%;
+margin-top:10px;
+border:none;
+border-radius:15px;
+background:#ff1f1f;
+color:white;
+cursor:pointer;
+}
+
+.qris{
+width:100%;
+border-radius:15px;
+margin-top:15px;
+cursor:pointer;
+}
+
+.support-item{
+padding:15px;
+background:#1a1a1a;
+border-radius:15px;
+margin-top:10px;
+}
+
+.wa{
+display:flex;
+align-items:center;
+gap:10px;
+background:#25D366;
+padding:15px;
+border-radius:15px;
+margin-top:10px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+margin-top:25px;
+opacity:.7;
+}
+</style>
+</head>
+
+<body class="dark">
+
+<audio id="music" loop>
+<source src="https://files.catbox.moe/vmbn3p.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<div class="top-buttons">
+<button class="top-btn" onclick="toggleTheme()">
+<i class="fas fa-palette"></i>
+</button>
+
+<button class="top-btn" onclick="toggleMusic()">
+<i class="fas fa-music"></i>
+</button>
+</div>
+
+<div class="card">
+
+<div class="profile-box">
+<img src="https://files.catbox.moe/2s7igb.png" class="profile">
+<div class="verify">
+<i class="fas fa-check"></i>
+</div>
+</div>
+
+<h1>Wellcome To Digital Market</h1>
+
+<p class="desc">
+Produk - Payment - My Suport
+</p>
+
+<div class="menu">
+<button onclick="openProduk()">
+<i class="fas fa-cubes"></i> Produk
+</button>
+
+<button onclick="openPayment()">
+<i class="fas fa-wallet"></i> Payment
+</button>
+
+<button onclick="openSupport()">
+<i class="fas fa-handshake"></i> My Support
+</button>
+
+<button onclick="openContact()">
+<i class="fas fa-address-card"></i> Contact
+</button>
+</div>
+
+</div>
+
+<footer>
+© 2026 DIGITAL MARKET ALL SANS TERPERCAYA
+</footer>
+
+</div>
+
+<!-- PRODUK -->
+<div id="produk" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('produk')">&times;</span>
+
+<h2>Produk</h2>
+
+<div class="product" onclick="openPayment()">
+<h3>MURLOG</h3>
+<p>
+1. Bisa punya banyak bahan<br>
+2. Bisa Open Murlog<br>
+3. Bisa Open Jaslog<br>
+4. Dapat banyak bahan
+</p>
+</div>
+
+<div class="product" onclick="openPayment()">
+<h3>MURSUN</h3>
+<p>
+1. Bisa Open Mursun<br>
+2. Bisa Open Jasun<br>
+3. Bisa suntik sepuasnya
+</p>
+</div>
+
+<div class="product" onclick="openPayment()">
+<h3>MURNOK</h3>
+<p>
+1. Bisa Open Nokos<br>
+2. Bisa jualan Nokos<br>
+3. Dapat banyak web Noko
+</p>
+</div>
+
+<div class="product" onclick="openPayment()">
+<h3>MURBAND</h3>
+<p>
+1. Dapat bahan<br>
+2. Bisa Open Jasa Band<br>
+3. Bisa Open Murband<br>
+4. Bisa Band sesuka hati
+</p>
+</div>
+
+<div class="product" onclick="openPayment()">
+<h3>MURBADAK</h3>
+<p>
+1. Bisa Badakin WA<br>
+2. Bisa Jasa Badak WA<br>
+3. Dapat file badak
+</p>
+</div>
+
+</div>
+</div>
+
+<!-- PAYMENT -->
+<div id="payment" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('payment')">&times;</span>
+
+<h2>Payment</h2>
+
+<button class="copy-btn"
+onclick="copyText('083140875103')">
+DANA : 083140875103
+</button>
+
+<button class="copy-btn"
+onclick="copyText('083140875103')">
+GOPAY : 083140875103
+</button>
+
+<img
+src="https://files.catbox.moe/w48p01.jpeg"
+class="qris"
+onclick="window.open('https://files.catbox.moe/w48p01.jpeg')">
+
+<p style="margin-top:10px">
+Klik QRIS untuk memperbesar.
+</p>
+
+</div>
+</div>
+
+<!-- SUPPORT -->
+<div id="support" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('support')">&times;</span>
+
+<h2>My Support</h2>
+
+<div class="support-item">Allah SWT</div>
+<div class="support-item">Orang Tua</div>
+<div class="support-item">Kawan-Kawan</div>
+
+</div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('contact')">&times;</span>
+
+<h2>Contact</h2>
+
+<a class="wa"
+href="https://wa.me/6285789884293">
+<i class="fab fa-whatsapp"></i>
+WhatsApp ALL
+</a>
+
+<a class="wa"
+href="https://wa.me/6285857701778">
+<i class="fab fa-whatsapp"></i>
+WhatsApp SIFF
+</a>
+
+</div>
+</div>
+
+<script>
+
+function openProduk(){
+document.getElementById('produk').style.display='block';
+}
+
+function openPayment(){
+document.getElementById('payment').style.display='block';
+}
+
+function openSupport(){
+document.getElementById('support').style.display='block';
+}
+
+function openContact(){
+document.getElementById('contact').style.display='block';
+}
+
+function closeModal(id){
+document.getElementById(id).style.display='none';
+}
+
+function copyText(text){
+navigator.clipboard.writeText(text);
+alert("Berhasil disalin : "+text);
+}
+
+function toggleMusic(){
+let audio=document.getElementById("music");
+
+if(audio.paused){
+audio.play();
+}else{
+audio.pause();
+}
+}
+
+function toggleTheme(){
+let body=document.body;
+
+if(body.classList.contains("dark")){
+body.classList.remove("dark");
+body.classList.add("blue");
+}else{
+body.classList.remove("blue");
+body.classList.add("dark");
+}
+}
+
+</script>
+
+</body>
+</html>
